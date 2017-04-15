@@ -1,4 +1,4 @@
-from Sort import Insertion_sort
+from Sort import Merge_sort
 import random
 from timeit import default_timer as timer
 import matplotlib.pyplot as plt
@@ -9,7 +9,7 @@ def random_list(n):
     random.shuffle(A)
     return A
 
-#con questi parametri si vede molto bene la crescita quadratica
+
 def TestIns():
     M = []
     T = []
@@ -21,7 +21,7 @@ def TestIns():
         while i < 5:
             B = A
             start = timer()
-            Insertion_sort(B)
+            Merge_sort(B, 0, dimensione - 1)
             end = timer()
             time = end - start
             T.append(time);
@@ -37,5 +37,5 @@ def TestIns():
     print M
     plt.plot(M)
     plt.ylabel('Secondi')
-    plt.xlabel('Insertion Sort')
+    plt.xlabel('Merge Sort')
     plt.show()
