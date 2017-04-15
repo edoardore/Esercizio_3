@@ -1,4 +1,7 @@
-from TestInsertion import TestIns
+from TestInsertion import TestInsShuffle
+from TestInsertion import TestInsOrdered
+from TestInsertion import TestInsBackwards
 
-
-TestIns()
+TestInsShuffle()
+TestInsOrdered()
+TestInsBackwards()
