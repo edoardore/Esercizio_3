@@ -1,5 +1,6 @@
 from math import modf
 
+
 def Insertion_sort(A):
     n = len(A)
     for j in range(1, n):
@@ -10,7 +11,6 @@ def Insertion_sort(A):
             i = i - 1
         A[i + 1] = key
 
-
 def max(A):
     massimo = A[0]
     pos = 1
@@ -20,34 +20,21 @@ def max(A):
         pos = pos + 1
     return massimo
 
-
 def Merge_sort(A, p, r):
     if p < r:
-        dec, q = modf((p + r) / 2)
-        q = int(q)
+        q = (p + r) // 2
         Merge_sort(A, p, q)
         Merge_sort(A, q + 1, r)
-        Merge(A, p, q, r)
-
+        Merge(A, p, q + 1, r)
 
 def Merge(A, p, q, r):
-    n1 = q - p + 1
-    n2 = r - q
-    L = []
-    R = []
-    i = 0
-    j = 0
-    while i <= n1:
-        L.append(A[p + i])
-        i += 1
-    while j <= n2:
-        R.append(A[q + j])
-        j += 1
-    L.append(max(L) + 1)
-    R.append(max(R) + 1)
-    i = 0
-    j = 0
-    for k in range(p, r):
+    L = A[p:q]
+    R = A[q:r + 1]
+    inf = float("inf")
+    L.append(inf)
+    R.append(inf)
+    i = j = 0
+    for k in range(p, r + 1):
         if L[i] <= R[j]:
             A[k] = L[i]
             i += 1
